@@ -3,9 +3,10 @@ $randomNumber = mt_rand(0,100);
 echo "Welcome to my guessing game!\n";
 echo "In this game input a number from 1 to 100.\n";
 echo "The system will let you know if your getting close.\n";
-
+$guessCount = 0;
 fwrite(STDOUT, "Guess the number.\n");
 do{
+    echo 'Number of guesses: ' . $guessCount++ .PHP_EOL;
     $userFirst = fgets(STDIN);
     $userInput = trim($userFirst);
 
@@ -16,4 +17,5 @@ do{
     }else{
         fwrite(STDOUT, "lower\n");
     }
+
 }while($userInput != $randomNumber);
